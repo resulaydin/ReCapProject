@@ -4,6 +4,7 @@ using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -20,7 +21,11 @@ namespace Business.Concrete
 
         public void Add(Car car)
         {
-            _carDal.Add(car);
+            if (car.Name.Length > 2 && car.DailyPrice > 0)
+                _carDal.Add(car);
+            else
+                Console.WriteLine(" Araba ismi minimum 2 karakter olmalı ve araba günlük fiyatı 0'dan büyük olmalıdır.");
+
         }
 
         public void Delete(Car car)
@@ -28,19 +33,23 @@ namespace Business.Concrete
             _carDal.Delete(car);
         }
 
-        public List<Car> GetAll()
+        public Car Get(Expression<Func<Car, bool>> filter)
         {
-            return _carDal.GetAll();
+            return _carDal.Get(filter);
         }
 
-        public Car GetById(int Id)
+        public List<Car> GetAll(Expression<Func<Car, bool>> filter = null)
         {
-           return _carDal.GetById(Id);
+            return _carDal.GetAll(filter);
         }
 
         public void Update(Car car)
         {
-            _carDal.Update(car);
+            if (car.Name.Length > 2 && car.DailyPrice > 0)
+                _carDal.Update(car);
+            else
+                Console.WriteLine(" Araba ismi minimum 2 karakter olmalı ve araba günlük fiyatı 0'dan büyük olmalıdır.");
+
         }
     }
 }
