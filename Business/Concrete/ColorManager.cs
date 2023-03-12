@@ -29,9 +29,9 @@ namespace Business.Concrete
             _colorDal.Delete(car);
         }
 
-        public Color Get(Expression<Func<Color, bool>> filter)
+        public Color GetById(int id)
         {
-           return _colorDal.Get(filter);
+           return _colorDal.Get(p=>p.Id==id);
         }
 
         public List<Color> GetAll(Expression<Func<Color, bool>> filter = null)

@@ -29,9 +29,9 @@ namespace Business.Concrete
             _brandDal.Delete(brand);
         }
 
-        public Brand Get(Expression<Func<Brand, bool>> filter)
+        public Brand GetById(int id)
         {
-           return _brandDal.Get(filter);
+           return _brandDal.Get(p=>p.Id==id);
         }
 
         public List<Brand> GetAll(Expression<Func<Brand, bool>> filter = null)

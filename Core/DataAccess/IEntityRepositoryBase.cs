@@ -1,5 +1,5 @@
-﻿using DataAccess.Concrete.Database;
-using Entities.Abstract;
+﻿using Core.Entities;
+using DataAccess.Abstract;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,9 +8,9 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccess.Abstract
+namespace Core.DataAccess
 {
-    public abstract class IEntityRepositoryBase<TEntity,TContext> : IEntityRepository<TEntity>
+    public abstract class IEntityRepositoryBase<TEntity, TContext> : IEntityRepository<TEntity>
         where TEntity : class, IEntity, new() // a: 
         where TContext :  DbContext,new()// b:  
         

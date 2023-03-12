@@ -1,4 +1,5 @@
 ﻿using Entities.Concrete;
+using Entities.DTOs;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -15,7 +16,8 @@ namespace DataAccess.Concrete.Database
         public DbSet<Car> Cars { get; set; }   
         public DbSet<Color> Colors { get; set; }   
         public DbSet<Brand> Brands { get; set; }
-
+        public DbSet<CarDetailDto> CarDetailDtos { get; set; }
+        
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

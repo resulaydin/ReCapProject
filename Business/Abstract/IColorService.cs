@@ -13,7 +13,7 @@ namespace Business.Abstract
         void Add(Color car);
         void Delete(Color car);
         void Update(Color car);
-        Color Get(Expression<Func<Color, bool>> filter);
+        Color GetById(int id);
         List<Color> GetAll(Expression<Func<Color, bool>> filter = null);
     }
 }

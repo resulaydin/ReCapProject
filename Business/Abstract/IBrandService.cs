@@ -13,7 +13,7 @@ namespace Business.Abstract
         void Add(Brand brand);
         void Delete(Brand brand);
         void Update(Brand brand);
-        Brand Get(Expression<Func<Brand, bool>> filter);
+        Brand GetById(int id);
         List<Brand> GetAll(Expression<Func<Brand, bool>> filter = null);
     }
 }
